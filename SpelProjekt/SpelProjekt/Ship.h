@@ -10,7 +10,7 @@ class Ship : public Enemie
 private:
 
 public:
-	Ship(string name, string mail, string department, int salery);
+	Ship();
 	virtual~Ship();
 };
 #pragma once

@@ -1,0 +1,3 @@
+﻿  Rocket.cpp
+c:\users\erike\onedrive\dokument\github\spelprojekt\spelprojekt\spelprojekt\rocket.cpp(42): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  SpelProjekt.vcxproj -> C:\Users\erike\OneDrive\Dokument\GitHub\SpelProjekt\SpelProjekt\Debug\SpelProjekt.exe

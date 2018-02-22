@@ -1,16 +1,17 @@
 #pragma once
 #include <string>
 #include <iostream>
-#include "ShotHandler.h"
 
 using namespace std;
 
-class Shot : public ShotHandler
+class Shot
 {
 private:
 
 public:
-	Shot(string name, string mail, string department, int salery);
+	Shot();
 	virtual~Shot();
+	void Update(float dt);
+
 };
 #pragma once

@@ -1,18 +1,27 @@
-#pragma once
-#include <string>
-#include <iostream>
+#ifndef PLAYER_HPP
+#define PLAYER_HPP
 
-using namespace std;
+#include <SFML\Graphics.hpp>
+#include "Rocket.h"
 
-class Player
+class Player : public sf::Drawable
 {
-private:
-
 public:
-	Player(string name, string mail, string department, int salery);
-	virtual~Player();
+	Player();
+
+	void Update(float dt);
+	bool getShooting()const;
+
+private:
+	sf::Texture mTexture;
+	sf::Sprite mSpriteSheet;
+	float mSpeed = 180.0f;
+	Rocket rocket;
+
+	// Jump variables
+	bool mWasSpacePressed = false;
+	bool mIsShooting = false;
+
+	void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 };
-#pragma once
-#pragma once
-#pragma once
-#pragma once
+#endif

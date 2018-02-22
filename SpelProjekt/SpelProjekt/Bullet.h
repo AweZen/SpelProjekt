@@ -10,8 +10,10 @@ class Bullet : public Shot
 private:
 
 public:
-	Bullet(string name, string mail, string department, int salery);
+	Bullet();
 	virtual~Bullet();
+	void Update(float dt);
+
 };
 #pragma once
 #pragma once
