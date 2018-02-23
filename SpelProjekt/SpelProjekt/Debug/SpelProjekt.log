@@ -1,3 +1,5 @@
-﻿  Rocket.cpp
-c:\users\erike\onedrive\dokument\github\spelprojekt\spelprojekt\spelprojekt\rocket.cpp(42): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-  SpelProjekt.vcxproj -> C:\Users\erike\OneDrive\Dokument\GitHub\SpelProjekt\SpelProjekt\Debug\SpelProjekt.exe
+﻿  Game.cpp
+c:\users\awezen\documents\github\spelprojekt\spelprojekt\spelprojekt\alien.h(9): warning C4584: 'Alien': base-class 'sf::Drawable' is already a base-class of 'Enemie'
+  c:\users\awezen\documents\github\spelprojekt\spelprojekt\include\sfml\graphics\rendertarget.hpp(45): note: see declaration of 'sf::Drawable'
+  c:\users\awezen\documents\github\spelprojekt\spelprojekt\spelprojekt\enemie.h(8): note: see declaration of 'Enemie'
+  SpelProjekt.vcxproj -> C:\Users\AweZen\Documents\GitHub\SpelProjekt\SpelProjekt\Debug\SpelProjekt.exe

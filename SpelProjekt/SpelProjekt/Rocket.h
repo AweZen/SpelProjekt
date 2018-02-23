@@ -3,20 +3,22 @@
 #include <iostream>
 #include <SFML\Graphics.hpp>
 #include "Shot.h"
+#include "Player.h"
 using namespace std;
 
-class Rocket : public sf::Drawable
+class Rocket : public Shot, public sf::Drawable 
 {
 private:
-
 	sf::Texture mTexture;
 	sf::Sprite mSpriteSheet;
-	float mSpeed = -400.0f;
 	void draw(sf::RenderTarget &target, sf::RenderStates states) const;
+
 public:
 	Rocket();
 	bool Update(float dt);
 	void Center(sf::Vector2f direction);
+	sf::FloatRect getGlobalBounds();
+
 
 };
 #pragma once
