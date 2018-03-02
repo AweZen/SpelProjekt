@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 #include <SFML/Audio.hpp>
 #include <SFML\Graphics.hpp>
+=======
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+>>>>>>> e722ed4738e9346617e9e544da8f23a05ab098ab
 #include "Game.h"
 
 int main()
@@ -9,6 +14,7 @@ int main()
 	sf::RenderWindow window(sf::VideoMode(600, 600), "Space Invaders");
 	Game game;
 	sf::Clock gameTime;
+	bool gamePause = false;
 
 	while (window.isOpen())
 	{

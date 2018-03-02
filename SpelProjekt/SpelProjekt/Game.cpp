@@ -7,7 +7,12 @@
 
 Game::Game() :user()
 {
+<<<<<<< HEAD
 	backgroundTexture.loadFromFile("space.jpg");
+=======
+	int CAP = 3;
+	backgroundTexture.loadFromFile("space.png");
+>>>>>>> e722ed4738e9346617e9e544da8f23a05ab098ab
 	backgroundSprite.setTexture(backgroundTexture);
 	if (!music.openFromFile("music.ogg")) {
 
@@ -31,6 +36,7 @@ Game::Game() :user()
 }
 void Game::Update(float dt)
 {
+<<<<<<< HEAD
 	if (this->gamePause) {
 		if ((event.type == sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::Escape)) {
 			this->gamePause = false;
@@ -40,12 +46,26 @@ void Game::Update(float dt)
 		if ((event.type == sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::Escape)) {
 			this->gamePause = true;
 		}
+=======
+	//if(gamePause){
+	//	if ((event.type == sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::Escape)) {
+	//		gamePause = false;
+	//	}
+	//}
+	//if(!gamePause){
+	//	if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape)) {
+	//		gamePause = true;
+	//	}
+>>>>>>> e722ed4738e9346617e9e544da8f23a05ab098ab
 		Alien* alienPtr;
 		Ship* shipPtr;
 		user.Update(dt);
 
+<<<<<<< HEAD
 
 		//ÄNDRA
+=======
+>>>>>>> e722ed4738e9346617e9e544da8f23a05ab098ab
 		int nrOfEnemies = enemieHandler.getNrOfEnemies();
 		for (int i = 0; i < nrOfEnemies; i++)
 		{
@@ -76,9 +96,16 @@ void Game::Update(float dt)
 								enemieHandler.setDead(i);
 								score += 100;
 							}
+<<<<<<< HEAD
 							if (user.CollisionRocket(tempShip.getGlobalBounds()))
 							{
 								enemieHandler.setDead(i);
+=======
+							if (user.CollisionBullet(tempShip.getGlobalBounds()))
+							{
+								enemieHandler.setDead(i);
+								cout << "called on number " << i << endl;
+>>>>>>> e722ed4738e9346617e9e544da8f23a05ab098ab
 								score += 100;
 							}
 						}
@@ -101,7 +128,11 @@ void Game::Update(float dt)
 		this->text.setString("Score: " + to_string(score));
 		enemieHandler.Update(dt);
 	}
+<<<<<<< HEAD
 }
+=======
+
+>>>>>>> e722ed4738e9346617e9e544da8f23a05ab098ab
 
 
 bool Game::getPause()

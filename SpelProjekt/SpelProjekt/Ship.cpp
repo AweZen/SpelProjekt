@@ -19,6 +19,10 @@ Ship::Ship(int xPos)
 	mSpriteSheet.scale(0.1, 0.1);
 	mSpriteSheet.setRotation(-90);
 	mSpriteSheet.setPosition(xPos, 0);
+<<<<<<< HEAD
+=======
+	this->outOfSpace = false;
+>>>>>>> e722ed4738e9346617e9e544da8f23a05ab098ab
 }
 
 int Ship::getHealth()const
@@ -33,6 +37,7 @@ void Ship::setHealth(int health)
 
 Ship::~Ship()
 {
+<<<<<<< HEAD
 
 }
 
@@ -44,6 +49,16 @@ bool Ship::Update(float dt)
 		outOfSpace = true;
 	}
 	return outOfSpace;
+=======
+}
+
+void Ship::Update(float dt)
+{
+	mSpriteSheet.move(0, getSpeed()*dt * 1);
+	//if (mSpriteSheet.getPosition().y >= 600) {
+	//	this->outOfSpace = true;
+	//}
+>>>>>>> e722ed4738e9346617e9e544da8f23a05ab098ab
 }
 sf::FloatRect Ship::getGlobalBounds()
 {

@@ -10,7 +10,11 @@ class EnemieHandler
 
 private:
 	static const int spawns[];
+<<<<<<< HEAD
 	static const int amountOfSpawns;
+=======
+	static const int AmountOfSpawns;
+>>>>>>> e722ed4738e9346617e9e544da8f23a05ab098ab
 
 	Enemie * *enemies;
 	int nrOfEnemies;

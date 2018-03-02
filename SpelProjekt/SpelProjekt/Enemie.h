@@ -17,7 +17,11 @@ public:
 	bool getDead()const;
 	void setDead();
 	int getSpeed();
+<<<<<<< HEAD
 	virtual bool Update(float dt) = 0;
+=======
+	virtual void Update(float dt) = 0;
+>>>>>>> e722ed4738e9346617e9e544da8f23a05ab098ab
 	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const = 0;
 
 

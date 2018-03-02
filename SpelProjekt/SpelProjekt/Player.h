@@ -17,7 +17,10 @@ private:
 	sf::Vector2f outOfMap;
 public:
 	Player();
+<<<<<<< HEAD
 	~Player();
+=======
+>>>>>>> e722ed4738e9346617e9e544da8f23a05ab098ab
 	bool CollisionBullet(sf::FloatRect Enemie);
 	bool CollisionRocket(sf::FloatRect Enemie);
 

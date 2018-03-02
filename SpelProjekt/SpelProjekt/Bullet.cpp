@@ -10,6 +10,10 @@ Bullet::Bullet()
 {
 	if (mTexture.loadFromFile("bullet.png"))
 	{
+<<<<<<< HEAD
+=======
+		// Handle error
+>>>>>>> e722ed4738e9346617e9e544da8f23a05ab098ab
 	}
 	mSpriteSheet.setTexture(mTexture);
 	mSpriteSheet.setPosition(100, 100);

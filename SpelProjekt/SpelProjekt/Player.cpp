@@ -22,11 +22,16 @@ Player::Player()
 	this->shots = new Shot*[2];
 	this->shots[0] = new Rocket();
 	this->shots[1] = new Bullet();
+<<<<<<< HEAD
 	this->outOfMap.x = -100;
+=======
+	this -> outOfMap.x = -100;
+>>>>>>> e722ed4738e9346617e9e544da8f23a05ab098ab
 	this->outOfMap.y = -100;
 
 
 }
+<<<<<<< HEAD
 Player::~Player() {
 	delete shots[0];
 	delete shots[1];
@@ -34,6 +39,8 @@ Player::~Player() {
 }
 
 
+=======
+>>>>>>> e722ed4738e9346617e9e544da8f23a05ab098ab
 
 bool Player::CollisionBullet(sf::FloatRect Enemie)
 {
@@ -45,6 +52,22 @@ bool Player::CollisionBullet(sf::FloatRect Enemie)
 		mIsShootingBullet = false;
 		shots[1]->Center(outOfMap);
 	}
+<<<<<<< HEAD
+	return itHit;
+}
+bool Player::CollisionRocket(sf::FloatRect Enemie)
+{
+	bool itHit = false;
+
+	Rocket* tempRocket = dynamic_cast<Rocket*>(shots[0]);
+	if (tempRocket->getGlobalBounds().intersects(Enemie)) {
+		itHit = true;
+		mIsShootingRocket = false;
+		shots[0]->Center(outOfMap);
+	}
+=======
+
+>>>>>>> e722ed4738e9346617e9e544da8f23a05ab098ab
 	return itHit;
 }
 bool Player::CollisionRocket(sf::FloatRect Enemie)
@@ -59,6 +82,10 @@ bool Player::CollisionRocket(sf::FloatRect Enemie)
 	}
 	return itHit;
 }
+
+
+
+
 
 
 
@@ -81,7 +108,17 @@ void Player::Update(float dt)
 			direction.x = 1.0f;
 
 		}
+<<<<<<< HEAD
+=======
 
+	}
+>>>>>>> e722ed4738e9346617e9e544da8f23a05ab098ab
+
+	bool isArrowUpPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::Up);
+	if (isArrowUpPressed && !mIsShootingBullet)
+	{
+		mIsShootingBullet = true;
+		shots[1]->Center(mSpriteSheet.getPosition());
 	}
 
 	bool isArrowUpPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::Up);

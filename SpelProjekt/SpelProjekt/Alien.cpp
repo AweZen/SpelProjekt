@@ -2,6 +2,10 @@
 void Alien::draw(sf::RenderTarget & target, sf::RenderStates states) const
 {
 	target.draw(alienSpriteSheet, states);
+<<<<<<< HEAD
+=======
+	//cout << " i draw enemie number ... " << endl;
+>>>>>>> e722ed4738e9346617e9e544da8f23a05ab098ab
 
 }
 
@@ -20,6 +24,7 @@ Alien::~Alien()
 {
 }
 
+<<<<<<< HEAD
 bool Alien::Update(float dt)
 {
 	bool outOfSpace = false;
@@ -28,6 +33,15 @@ bool Alien::Update(float dt)
 		outOfSpace = true;
 	}
 	return outOfSpace;
+=======
+void Alien::Update(float dt)
+{
+	alienSpriteSheet.move(0, this->getSpeed()*dt * 1);
+	//if (alienSpriteSheet.getPosition().y >= 600) {
+	//	this->outOfSpace = true;
+	//}
+	//return this->outOfSpace;
+>>>>>>> e722ed4738e9346617e9e544da8f23a05ab098ab
 }
 
 sf::FloatRect Alien::getGlobalBounds()
