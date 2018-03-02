@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "Rocket.h"
+#include "Bullet.h"
 
 Player::Player()
 {
@@ -16,9 +17,52 @@ Player::Player()
 	mSpriteSheet.setTexture(mTexture);
 	mSpriteSheet.scale(0.2,0.2);
 	mSpriteSheet.setPosition(300,535);
+	
 	// Initialise animation variables.
+	this->shots = new Shot*[2];
+	this->shots[0] = new Rocket();
+	this->shots[1] = new Bullet();
+	this->outOfMap.x = -100;
+	this->outOfMap.y = -100;
+
 
 }
+Player::~Player() {
+	delete shots[0];
+	delete shots[1];
+	delete[] shots;
+}
+
+
+
+bool Player::CollisionBullet(sf::FloatRect Enemie)
+{
+	bool itHit = false;
+
+	Bullet* tempBullet = dynamic_cast<Bullet*>(shots[1]);
+	if (tempBullet->getGlobalBounds().intersects(Enemie)) {
+		itHit = true;
+		mIsShootingBullet = false;
+		shots[1]->Center(outOfMap);
+	}
+	return itHit;
+}
+bool Player::CollisionRocket(sf::FloatRect Enemie)
+{
+	bool itHit = false;
+
+	Rocket* tempRocket = dynamic_cast<Rocket*>(shots[0]);
+	if (tempRocket->getGlobalBounds().intersects(Enemie)) {
+		itHit = true;
+		mIsShootingRocket = false;
+		shots[0]->Center(outOfMap);
+	}
+	return itHit;
+}
+
+
+
+
 
 void Player::Update(float dt)
 {
@@ -27,43 +71,64 @@ void Player::Update(float dt)
 	// Handle input from arrow keys and update direction and animation
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
-		direction.x = -1.0f;
+		if ( mSpriteSheet.getPosition().x > 0) {
+			direction.x = -1.0f;
+		}
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
-		direction.x = 1.0f;
+		if ( mSpriteSheet.getPosition().x < 540) {
+			direction.x = 1.0f;
 
+		}
+
+	}
+
+	bool isArrowUpPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::Up);
+	if (isArrowUpPressed && !mIsShootingBullet)
+	{
+		mIsShootingBullet = true;
+		shots[1]->Center(mSpriteSheet.getPosition());
 	}
 	// Check to start jumping
 	bool isSpacePressed = sf::Keyboard::isKeyPressed(sf::Keyboard::Space);
-	if (isSpacePressed && !mIsShooting)
+	if (isSpacePressed && !mIsShootingRocket)
 	{
-		mIsShooting = true;
-		rocket.Center(mSpriteSheet.getPosition());
+		mIsShootingRocket = true;
+		shots[0]->Center(mSpriteSheet.getPosition());
 	}
-
 
 	// Update jump
-	if (mIsShooting)
+	if (mIsShootingRocket)
 	{
-		if(rocket.Update(dt))
+		if(shots[0]->Update(dt))
 		{
-			mIsShooting = false;
+			mIsShootingRocket = false;
 		}
 	}
-
+	if (mIsShootingBullet)
+	{
+		if (shots[1]->Update(dt))
+		{
+			mIsShootingBullet = false;
+		}
+	}
 	mSpriteSheet.move(direction * mSpeed * dt);
-
 	// Update animation
 }
 
-bool Player::getShooting() const
+bool Player::getShootingRocket() const
 {
-	return mIsShooting;
+	return mIsShootingRocket;
 }
 
 void Player::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
 	target.draw(mSpriteSheet, states);
-	target.draw(rocket, states);
+	if (mIsShootingRocket) {
+		target.draw(*shots[0], states);
+	}
+	if (mIsShootingBullet) {
+		target.draw(*shots[1], states);
+	}
 }
